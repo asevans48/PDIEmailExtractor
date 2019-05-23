@@ -34,15 +34,16 @@
 
   <properties>
     <dependency.pentaho-kettle.kettle-core.version>8.3.0.0-SNAPSHOT</dependency.pentaho-kettle.kettle-core.version>
-    <dependency.pentaho-metaverse-api>8.3.0.0-SNAPSHOT</dependency.pentaho-metaverse-api>
+    <dependency.pentaho-metaverse-api>7.1.0.10-106</dependency.pentaho-metaverse-api>
     <!-- Plugin dependencies -->
-    <target.jdk.version>1.7</target.jdk.version>
+    <target.jdk.version>1.8</target.jdk.version>
     <plugin.maven-bundle-plugin.version>2.5.3</plugin.maven-bundle-plugin.version>
     <plugin.maven-compiler-plugin.version>3.1</plugin.maven-compiler-plugin.version>
     <mockito.version>1.9.5</mockito.version>
     <junit.version>4.4</junit.version>
     <guava.version>17.0</guava.version>
-    </properties>
+  </properties>
+
 
   <dependencies>
     <dependency>
@@ -61,14 +62,33 @@
       <version>${dependency.pentaho-kettle.kettle-core.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.core</artifactId>
+      <version>4.2.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
     </dependency>
+
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>pentaho-metaverse-api</artifactId>
       <version>${dependency.pentaho-metaverse-api}</version>
+    </dependency>
+    <dependency>
+      <groupId>pentaho</groupId>
+      <artifactId>pentaho-metaverse-core</artifactId>
+      <version>${dependency.pentaho-metaverse-api}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.4.2</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
