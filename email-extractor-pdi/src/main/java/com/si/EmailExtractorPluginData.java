@@ -18,17 +18,35 @@
  */
 package com.si;
 
+import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.trans.step.BaseStepData;
 import org.pentaho.di.trans.step.StepDataInterface;
 
+import java.util.regex.Pattern;
+
 
 public class EmailExtractorPluginData extends BaseStepData implements StepDataInterface {
-  // Add any execution-specific data here
+  public RowMetaInterface outputRowMeta;
+  private String regex = "(?mis)([a-zA-Z0-9_!#$%&'*+/=?`{|}~^\\.\\-]+@[a-zA-Z0-9\\.\\-]+)";
+  private Pattern emailRegex = Pattern.compile(regex);
 
-  /**
-   * 
-   */
   public EmailExtractorPluginData() {
     super();
+  }
+
+  public String getRegex() {
+    return regex;
+  }
+
+  public void setRegex(String regex) {
+    this.regex = regex;
+  }
+
+  public Pattern getEmailRegex() {
+    return emailRegex;
+  }
+
+  public void setEmailRegex(Pattern emailRegex) {
+    this.emailRegex = emailRegex;
   }
 }
