@@ -18,19 +18,17 @@
  */
 package com.si;
 
-import org.pentaho.di.core.Const;
-import org.pentaho.di.core.annotations.Step;
 import org.pentaho.di.core.CheckResult;
 import org.pentaho.di.core.CheckResultInterface;
+import org.pentaho.di.core.Const;
+import org.pentaho.di.core.annotations.Step;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.exception.KettleStepException;
 import org.pentaho.di.core.exception.KettleValueException;
 import org.pentaho.di.core.exception.KettleXMLException;
 import org.pentaho.di.core.row.RowMetaInterface;
-import org.pentaho.di.core.row.ValueMetaInterface;
-import org.pentaho.di.core.row.value.ValueMetaFactory;
-import org.pentaho.di.core.row.value.ValueMetaInteger;
+import org.pentaho.di.core.row.value.ValueMetaString;
 import org.pentaho.di.core.variables.VariableSpace;
 import org.pentaho.di.core.xml.XMLHandler;
 import org.pentaho.di.i18n.BaseMessages;
@@ -38,15 +36,10 @@ import org.pentaho.di.repository.ObjectId;
 import org.pentaho.di.repository.Repository;
 import org.pentaho.di.trans.Trans;
 import org.pentaho.di.trans.TransMeta;
-import org.pentaho.di.trans.step.BaseStepMeta;
-import org.pentaho.di.trans.step.StepInterface;
-import org.pentaho.di.trans.step.StepMeta;
-import org.pentaho.di.trans.step.StepMetaInterface;
-import org.pentaho.di.trans.step.StepDataInterface;
+import org.pentaho.di.trans.step.*;
 import org.pentaho.metastore.api.IMetaStore;
 import org.w3c.dom.Node;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -64,7 +57,7 @@ public class EmailExtractorPluginMeta extends BaseStepMeta implements StepMetaIn
   private static Class<?> PKG = EmailExtractorPlugin.class; // for i18n purposes, needed by Translator2!!   $NON-NLS-1$
 
   public EmailExtractorPluginMeta() {
-    super(); // allocate BaseStepMeta
+    super();
   }
 
   public String getInField() {
@@ -90,6 +83,11 @@ public class EmailExtractorPluginMeta extends BaseStepMeta implements StepMetaIn
   public void setCheckValid(boolean checkValid) {
     this.checkValid = checkValid;
   }
+
+  public void loadXML(Node stepnode, List<DatabaseMeta> databases, IMetaStore metaStore ) throws KettleXMLException {
+    readData( stepnode );
+  }
+
 
   public String getXML() throws KettleValueException {
     StringBuilder xml = new StringBuilder();
@@ -138,7 +136,7 @@ public class EmailExtractorPluginMeta extends BaseStepMeta implements StepMetaIn
 
   public void getFields( RowMetaInterface rowMeta, String origin, RowMetaInterface[] info, StepMeta nextStep,
                          VariableSpace space, Repository repository, IMetaStore metaStore ) throws KettleStepException {
-    ValueMetaInteger v0 = new ValueMetaInteger(outField);
+    ValueMetaString v0 = new ValueMetaString(outField);
     v0.setOrigin(origin);
     rowMeta.addValueMeta(v0);
   }

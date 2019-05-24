@@ -120,13 +120,13 @@ public class EmailExtractorPluginDialog extends BaseStepDialog implements StepDi
     formLayout.marginWidth = Const.FORM_MARGIN;
     formLayout.marginHeight = Const.FORM_MARGIN;
     shell.setLayout(formLayout);
-    shell.setText(BaseMessages.getString(PKG, "LibPhonenumberPDIPluginDialog.Shell.Title"));
+    shell.setText(BaseMessages.getString(PKG, "EmailExtractorPluginDialog.Shell.Title"));
     int middle = props.getMiddlePct();
     int margin = Const.MARGIN;
 
     // Stepname line
     wlStepname = new Label(shell, SWT.RIGHT);
-    wlStepname.setText(BaseMessages.getString(PKG, "LibPhonenumberPDIPluginDialog.Stepname.Label"));
+    wlStepname.setText(BaseMessages.getString(PKG, "EmailExtractorPluginDialog.Stepname.Label"));
     props.setLook(wlStepname);
     fdlStepname = new FormData();
     fdlStepname.left = new FormAttachment(0, 0);
@@ -146,7 +146,7 @@ public class EmailExtractorPluginDialog extends BaseStepDialog implements StepDi
 
     // Set the in field name
     lfname = new Label( shell, SWT.RIGHT );
-    lfname.setText( BaseMessages.getString( PKG, "LibPhonenumberPDIPluginDialog.Fields.FieldName" ) );
+    lfname.setText( BaseMessages.getString( PKG, "EmailExtractorPluginDialog.Fields.FieldName" ) );
     props.setLook( lfname );
     fdlFname = new FormData();
     fdlFname.left = new FormAttachment( 0, 0 );
@@ -179,7 +179,7 @@ public class EmailExtractorPluginDialog extends BaseStepDialog implements StepDi
 
     //outfield
     wOutFieldName = new Label(shell, SWT.RIGHT);
-    wOutFieldName.setText(BaseMessages.getString(PKG, "LibPhonenumberPDIPluginDialog.Output.FieldName"));
+    wOutFieldName.setText(BaseMessages.getString(PKG, "EmailExtractorPluginDialog.Output.FieldName"));
     props.setLook(wOutFieldName);
     fdlOutFieldName = new FormData();
     fdlOutFieldName.left = new FormAttachment(0, 0);
@@ -198,7 +198,7 @@ public class EmailExtractorPluginDialog extends BaseStepDialog implements StepDi
 
     //flag for checkvalid
     wCheckValidName = new Label(shell,SWT.RIGHT);
-    wCheckValidName.setText(BaseMessages.getString(PKG,"LibPhonenumberPDIPluginDialog.Output.CheckValid"));
+    wCheckValidName.setText(BaseMessages.getString(PKG,"EmailExtractorPluginDialog.Output.CheckValid"));
     props.setLook(wCheckValidName);
     fdlCheckValidName = new FormData();
     fdlCheckValidName.left = new FormAttachment(0, 0);
